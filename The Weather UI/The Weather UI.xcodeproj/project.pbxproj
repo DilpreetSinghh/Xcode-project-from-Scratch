@@ -12,6 +12,7 @@
 		7D54C30F29B3752B00C99B00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54C30E29B3752B00C99B00 /* ContentView.swift */; };
 		7D54C31129B3752C00C99B00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D54C31029B3752C00C99B00 /* Assets.xcassets */; };
 		7D54C31529B3752C00C99B00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D54C31429B3752C00C99B00 /* Preview Assets.xcassets */; };
+		7DCD55A72B59BB9E00E6209D /* Weather App Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD55A62B59BB9D00E6209D /* Weather App Documentation.docc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7D54C31029B3752C00C99B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D54C31229B3752C00C99B00 /* The_Weather_UI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = The_Weather_UI.entitlements; sourceTree = "<group>"; };
 		7D54C31429B3752C00C99B00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7DCD55A62B59BB9D00E6209D /* Weather App Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = "Weather App Documentation.docc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				7D54C31429B3752C00C99B00 /* Preview Assets.xcassets */,
+				7DCD55A62B59BB9D00E6209D /* Weather App Documentation.docc */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCD55A72B59BB9E00E6209D /* Weather App Documentation.docc in Sources */,
 				7D2DDAC129B4C02800BAD677 /* weatherButton.swift in Sources */,
 				7D54C30F29B3752B00C99B00 /* ContentView.swift in Sources */,
 				7D54C30D29B3752B00C99B00 /* The_Weather_UIApp.swift in Sources */,
