@@ -29,13 +29,13 @@ struct ContentView: View {
 
                     ScrollView(.horizontal){
                         HStack (spacing: 15){
-                            weatherDayView(dayOfWeek: "MON", imageName: "aqi.medium", temperature: -20)
-                            weatherDayView(dayOfWeek: "TUE", imageName: "aqi.medium", temperature: -20)
-                            weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: -10)
-                            weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -15)
+                            weatherDayView(dayOfWeek: "MON", imageName: "sun.max.fill", temperature: 15)
+                            weatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 4)
+                            weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: 0)
+                            weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -2)
                             weatherDayView(dayOfWeek: "FRI", imageName: "wind.snow.circle", temperature: 0)
-                            weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -30)
-                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -15)
+                            weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -10)
+                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -4)
                         }
                     }
                     Spacer()
