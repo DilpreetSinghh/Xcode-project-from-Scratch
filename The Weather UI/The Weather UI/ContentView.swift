@@ -16,37 +16,39 @@ struct ContentView: View {
         ZStack {
             backgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lighter blue"))
             
-            VStack(spacing: 40){
-                
-                cityTextView(cityName: "Gurdaspur, PB")
-                Text("TODAY")
-                    .font(.system(size: 30, weight: .medium, design: .default))
-                    .foregroundColor(.white)
-                    .frame(width: 200, height: 15)
+            ScrollView{
+                VStack(spacing: 40){
                     
-                mainWeatherView(weatherImageName: "cloud.sun.fill", temperature: 10)
+                    cityTextView(cityName: "Gurdaspur, PB")
+                    Text("TODAY")
+                        .font(.system(size: 30, weight: .medium, design: .default))
+                        .foregroundColor(.white)
+                        .frame(width: 200, height: 15)
+                        
+                    mainWeatherView(weatherImageName: "cloud.sun.fill", temperature: 10)
 
-                ScrollView(.horizontal){
-                    HStack (spacing: 15){
-                        weatherDayView(dayOfWeek: "MON", imageName: "aqi.medium", temperature: -20)
-                        weatherDayView(dayOfWeek: "TUE", imageName: "aqi.medium", temperature: -20)
-                        weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: -10)
-                        weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -15)
-                        weatherDayView(dayOfWeek: "FRI", imageName: "wind.snow.circle", temperature: 0)
-                        weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -30)
-                        weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -15)
+                    ScrollView(.horizontal){
+                        HStack (spacing: 15){
+                            weatherDayView(dayOfWeek: "MON", imageName: "aqi.medium", temperature: -20)
+                            weatherDayView(dayOfWeek: "TUE", imageName: "aqi.medium", temperature: -20)
+                            weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: -10)
+                            weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -15)
+                            weatherDayView(dayOfWeek: "FRI", imageName: "wind.snow.circle", temperature: 0)
+                            weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -30)
+                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -15)
+                        }
                     }
+                    Spacer()
+                    
+                    Button{
+                        isNight.toggle()
+                        print("isNight toggled")
+                    }
+                label: {
+                    weatherLocationButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
                 }
-                Spacer()
-                
-                Button{
-                    isNight.toggle()
-                    print("isNight toggled")
+                    Spacer()
                 }
-            label: {
-                weatherLocationButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
-            }
-                Spacer()
             }
         }
     }
