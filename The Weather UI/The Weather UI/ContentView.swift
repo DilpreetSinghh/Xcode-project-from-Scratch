@@ -78,8 +78,8 @@ struct weatherDayView: View {
                 .frame(width: 50, height: 50)
                 .foregroundColor(.white)
                 
-            Text("\(temperature)")
-                .font(.system(size: 30, weight: .heavy, design: .rounded))
+            Text("\(temperature)℃")
+                .font(.system(size: 20, weight: .heavy, design: .rounded))
                 .foregroundColor(.white)
         }
     }
