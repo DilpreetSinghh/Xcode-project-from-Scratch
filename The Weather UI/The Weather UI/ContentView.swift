@@ -6,36 +6,47 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     
     @State private var isNight = false
     
+    let currentDate = Date()
+
+        private let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter
+        }()
     
     var body: some View {
+        
         ZStack {
-            backgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lighter blue"))
+            backgroundView(isNight: $isNight)
             
             ScrollView{
-                VStack(spacing: 40){
-                    
+                VStack(spacing: 35){
+                    Spacer()
                     cityTextView(cityName: "Gurdaspur, PB")
-                    Text("TODAY")
-                        .font(.system(size: 30, weight: .medium, design: .default))
+                    Text("\(currentDate.formatted(date: .abbreviated, time: .shortened))")
+                        .font(.system(size: 25, weight: .medium, design: .default))
                         .foregroundColor(.white)
-                        .frame(width: 200, height: 15)
+                        
+                        .frame(width: 300, height: 60, alignment: .center)
                         
                     mainWeatherView(weatherImageName: "cloud.sun.fill", temperature: 10)
 
                     ScrollView(.horizontal){
                         HStack (spacing: 15){
+                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.sun.fill", temperature: 8)
                             weatherDayView(dayOfWeek: "MON", imageName: "sun.max.fill", temperature: 15)
                             weatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 4)
                             weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: 0)
                             weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -2)
                             weatherDayView(dayOfWeek: "FRI", imageName: "wind.snow.circle", temperature: 0)
                             weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -10)
-                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -4)
                         }
                     }
                     Spacer()
@@ -45,7 +56,7 @@ struct ContentView: View {
                         print("isNight toggled")
                     }
                 label: {
-                    weatherLocationButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
+                    weatherLocationButton(title: "Change Day Time", textColor: isNight ? .accentColor : .white , backgroundColor: isNight ? .white : .accentColor)
                 }
                     Spacer()
                 }
@@ -72,13 +83,14 @@ struct weatherDayView: View {
                 .font(.system(size: 25, weight: .medium, design: .rounded))
                 .foregroundColor(.white)
             Image(systemName: imageName)
-                .renderingMode(.original)
+                .symbolRenderingMode(.multicolor)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50, height: 50)
                 .foregroundColor(.white)
-            Text("\(temperature)")
-                .font(.system(size: 30, weight: .heavy, design: .rounded))
+                
+            Text("\(temperature)℃")
+                .font(.system(size: 20, weight: .heavy, design: .rounded))
                 .foregroundColor(.white)
         }
     }
@@ -86,12 +98,11 @@ struct weatherDayView: View {
 
 struct backgroundView: View {
     
-    var topColor: Color
-    var bottomColor: Color
+    @Binding var isNight: Bool
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [ .blue, Color("lighter blue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all)
+        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lighter purple")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .ignoresSafeArea()
     }
 }
 
