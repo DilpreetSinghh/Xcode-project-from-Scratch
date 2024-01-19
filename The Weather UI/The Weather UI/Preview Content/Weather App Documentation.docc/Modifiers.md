@@ -36,3 +36,6 @@ ZStack{
 Above `ZStack` has 5 Views.
 
 ZStack has a limit of 10 views. Views like `VStack`, `HStack`, `Spacer()`
+
+### @Binding
+
