@@ -18,3 +18,21 @@ This gives us padding to only the bottom part of the frame in a `Stack`.
 Spacer()
 ```
 This used in a Stack, Without a stack it wont affect the item for it is being used.
+
+### ZStack()
+```swift
+ZStack{
+    Spacer()
+
+    VStack{    }
+
+    Spacer()
+
+    HStack{    }
+    
+    Spacer()
+}
+```
+Above `ZStack` has 5 Views.
+
+ZStack has a limit of 10 views. Views like `VStack`, `HStack`, `Spacer()`

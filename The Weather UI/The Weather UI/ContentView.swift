@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            backgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lighter blue"))
+            backgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lighter purple"))
             
             ScrollView{
                 VStack(spacing: 40){
@@ -29,13 +29,13 @@ struct ContentView: View {
 
                     ScrollView(.horizontal){
                         HStack (spacing: 15){
+                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.sun.fill", temperature: 8)
                             weatherDayView(dayOfWeek: "MON", imageName: "sun.max.fill", temperature: 15)
                             weatherDayView(dayOfWeek: "TUE", imageName: "cloud.sun.fill", temperature: 4)
                             weatherDayView(dayOfWeek: "WED", imageName: "cloud.rain.fill", temperature: 0)
                             weatherDayView(dayOfWeek: "THU", imageName: "cloud.bolt.rain.fill", temperature: -2)
                             weatherDayView(dayOfWeek: "FRI", imageName: "wind.snow.circle", temperature: 0)
                             weatherDayView(dayOfWeek: "SAT", imageName: "aqi.high", temperature: -10)
-                            weatherDayView(dayOfWeek: "SUN", imageName: "cloud.bolt.rain.fill", temperature: -4)
                         }
                     }
                     Spacer()
@@ -77,6 +77,7 @@ struct weatherDayView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50, height: 50)
                 .foregroundColor(.white)
+                
             Text("\(temperature)")
                 .font(.system(size: 30, weight: .heavy, design: .rounded))
                 .foregroundColor(.white)
@@ -90,7 +91,7 @@ struct backgroundView: View {
     var bottomColor: Color
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [ .blue, Color("lighter blue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
 }
