@@ -6,24 +6,35 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     
-    @State private var isNight = true
+    @State private var isNight = false
     
+    let currentDate = Date()
+
+        private let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter
+        }()
     
     var body: some View {
+        
         ZStack {
             backgroundView(isNight: $isNight)
             
             ScrollView{
-                VStack(spacing: 40){
-                    
+                VStack(spacing: 35){
+                    Spacer()
                     cityTextView(cityName: "Gurdaspur, PB")
-                    Text("TODAY")
-                        .font(.system(size: 30, weight: .medium, design: .default))
+                    Text("\(currentDate.formatted(date: .abbreviated, time: .shortened))")
+                        .font(.system(size: 25, weight: .medium, design: .default))
                         .foregroundColor(.white)
-                        .frame(width: 200, height: 15)
+                        
+                        .frame(width: 300, height: 60, alignment: .center)
                         
                     mainWeatherView(weatherImageName: "cloud.sun.fill", temperature: 10)
 
@@ -45,7 +56,7 @@ struct ContentView: View {
                         print("isNight toggled")
                     }
                 label: {
-                    weatherLocationButton(title: "Change Day Time", textColor: isNight ? .white : .accentColor , backgroundColor: isNight ? .accentColor : .white)
+                    weatherLocationButton(title: "Change Day Time", textColor: isNight ? .accentColor : .white , backgroundColor: isNight ? .white : .accentColor)
                 }
                     Spacer()
                 }
