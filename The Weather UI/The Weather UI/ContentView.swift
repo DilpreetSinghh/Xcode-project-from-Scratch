@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            backgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lighter purple"))
+            backgroundView(isNight: $isNight)
             
             ScrollView{
                 VStack(spacing: 40){
@@ -87,11 +87,10 @@ struct weatherDayView: View {
 
 struct backgroundView: View {
     
-    var topColor: Color
-    var bottomColor: Color
+    @Binding var isNight: Bool
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lighter purple")]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
     }
 }
